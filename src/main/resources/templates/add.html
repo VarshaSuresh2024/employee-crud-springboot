@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Employee</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #232526, #414345);
+        color: white;
+        padding-top: 50px;
+    }
+
+    .form-box {
+        width: 400px;
+        margin: auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    input {
+        width: 95%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        border: none;
+        background: #0984e3;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #74b9ff;
+        transform: scale(1.03);
+    }
+
+    .back-btn {
+        margin-top: 15px;
+        background: #636e72;
+    }
+
+    .back-btn:hover {
+        background: #b2bec3;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="form-box">
+    <h1>Add Employee</h1>
+
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="image_link" placeholder="Image Link">
+        <input type="email" name="email" placeholder="Email">
+        <input type="number" name="mobile" placeholder="Mobile">
+        <input type="text" name="salary" placeholder="Salary">
+
+        <button type="submit">Add</button>
+        <button type="button" class="back-btn" onclick="window.location.href='/'">Back</button>
+    </form>
+</div>
+
+</body>
+</html>

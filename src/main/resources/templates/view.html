@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employees</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #141414;
+        color: white;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #00cec9;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .card {
+        background: #1f1f1f;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+        padding-bottom: 15px;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        background: #2d2d2d;
+    }
+
+    .card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .info {
+        padding: 15px;
+    }
+
+    .info h3 { margin: 0; }
+    .info p { margin: 5px 0; }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    button {
+        padding: 8px 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .edit {
+        background: #0984e3;
+        color: white;
+    }
+    .edit:hover { background: #74b9ff; }
+
+    .delete {
+        background: #d63031;
+        color: white;
+    }
+    .delete:hover { background: #ff7675; }
+
+    .back-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 40px;
+        background: #6c5ce7;
+        color: white;
+        border-radius: 10px;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Employees List</h1>
+<h3 align="center" th:text="${message}"></h3>
+
+<div class="card-container">
+
+    <div class="card" th:each="emp : ${list}">
+        <img th:src="${emp.image_link}">
+        <div class="info">
+            <h3 th:text="${emp.name}"></h3>
+            <p>Email: <span th:text="${emp.email}"></span></p>
+            <p>Mobile: <span th:text="${emp.mobile}"></span></p>
+            <p>Salary: ₹<span th:text="${emp.salary}"></span></p>
+        </div>
+
+        <div class="actions">
+            <a th:href="'/edit?id='+${emp.id}">
+                <button class="edit">Edit</button>
+            </a>
+
+            <a th:href="'/delete?id='+${emp.id}">
+                <button class="delete">Delete</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<a href="/"><button class="back-btn">Back</button></a>
+
+</body>
+</html>

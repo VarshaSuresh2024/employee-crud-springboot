@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Employee</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #232526, #414345);
+        color: white;
+        padding-top: 50px;
+    }
+
+    .form-box {
+        width: 400px;
+        margin: auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    input {
+        width: 95%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        border: none;
+        background: #6c5ce7;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #a29bfe;
+        transform: scale(1.03);
+    }
+
+    .back-btn {
+        margin-top: 15px;
+        background: #636e72;
+    }
+
+    .back-btn:hover {
+        background: #b2bec3;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="form-box">
+    <h1>Edit Employee</h1>
+
+    <form action="/update" method="post">
+        <input type="hidden" name="id" th:value="${emp.id}">
+
+        <input type="text" name="name" th:value="${emp.name}">
+        <input type="text" name="image_link" th:value="${emp.image_link}">
+        <input type="email" name="email" th:value="${emp.email}">
+        <input type="number" name="mobile" th:value="${emp.mobile}">
+        <input type="text" name="salary" th:value="${emp.salary}">
+
+        <button type="submit">Update</button>
+        <button type="button" class="back-btn" onclick="window.location.href='/'">Back</button>
+    </form>
+</div>
+
+</body>
+</html>
